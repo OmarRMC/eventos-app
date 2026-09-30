@@ -2,7 +2,6 @@ locals {
   tags = {
     Project   = var.project_name
     ManagedBy = "terraform"
-    Curso     = "laravel-13-sesion-13"
   }
 }
 

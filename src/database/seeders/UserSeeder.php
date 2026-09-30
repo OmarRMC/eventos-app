@@ -8,13 +8,13 @@ use Illuminate\Database\Seeder;
 
 class UserSeeder extends Seeder
 {
-    public const EMAIL_ORGANIZADOR = 'organizador@socef.test';
+    public const EMAIL_ORGANIZADOR = 'organizador@eventos.test';
 
-    public const EMAIL_PARTICIPANTE = 'participante@socef.test';
+    public const EMAIL_PARTICIPANTE = 'participante@eventos.test';
 
-    public const EMAIL_PARTICIPANTE_2 = 'participante2@socef.test';
+    public const EMAIL_PARTICIPANTE_2 = 'participante2@eventos.test';
 
-    public const EMAIL_PARTICIPANTE_3 = 'participante3@socef.test';
+    public const EMAIL_PARTICIPANTE_3 = 'participante3@eventos.test';
 
     public function run(): void
     {
@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
 
         $admin = User::factory()->create([
             'name' => 'Ana Administradora',
-            'email' => 'admin@socef.test',
+            'email' => 'admin@eventos.test',
         ]);
         $admin->roles()->attach($roles['admin']);
 
@@ -40,7 +40,7 @@ class UserSeeder extends Seeder
 
         $baja = User::factory()->desactivado()->create([
             'name' => 'Bruno Baja',
-            'email' => 'baja@socef.test',
+            'email' => 'baja@eventos.test',
         ]);
         $baja->roles()->attach($roles['participante']);
 
@@ -52,7 +52,7 @@ class UserSeeder extends Seeder
 
         $admin->perfil()->create([
             'telefono' => '600 000 001',
-            'institucion' => 'SOCEF',
+            'institucion' => 'Agenda de Eventos',
             'bio' => 'Administra las categorias, los usuarios y sus roles.',
         ]);
 

@@ -10,7 +10,7 @@ use Laravel\Mcp\Server\Attributes\Description;
 use Laravel\Mcp\Server\Tool;
 
 /**
- * Mismo criterio que Api\InscripcionController::index() (S10): siempre las inscripciones
+ * Mismo criterio que Api\InscripcionController::index(): siempre las inscripciones
  * del usuario autenticado por el token de la request, nunca las de otro usuario a pedido
  * (no acepta user_id/email como parametro). $request->user() resuelve al usuario que
  * autentico el middleware `auth:sanctum` en el transporte web; por stdio (Mcp::local, sin

@@ -10,12 +10,12 @@ use Illuminate\Support\Str;
 /**
  * Uso en terminal:
  *
- *   php artisan app:generar-eventos admin@socef.test
- *   php artisan app:generar-eventos admin@socef.test 20
+ *   php artisan app:generar-eventos admin@eventos.test
+ *   php artisan app:generar-eventos admin@eventos.test 20
  *   php artisan app:generar-eventos 1 5
- *   php artisan app:generar-eventos admin@socef.test 3 --manana
- *   php artisan app:generar-eventos admin@socef.test 3 --manana --inscritos=5
- *   php artisan app:generar-eventos admin@socef.test 3 --vencido
+ *   php artisan app:generar-eventos admin@eventos.test 3 --manana
+ *   php artisan app:generar-eventos admin@eventos.test 3 --manana --inscritos=5
+ *   php artisan app:generar-eventos admin@eventos.test 3 --vencido
  */
 class GenerarEventos extends Command
 {

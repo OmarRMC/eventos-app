@@ -90,7 +90,7 @@ class EventoController extends Controller
             ->with('status', 'Evento eliminado.');
     }
 
-    /** Reglas compartidas por store y update. Se iran a un FormRequest en la S7. */
+    /** Reglas compartidas por store y update. Pendiente: moverlas a un FormRequest. */
     private function validar(Request $request): array
     {
         return $request->validate([

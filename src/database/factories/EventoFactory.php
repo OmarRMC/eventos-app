@@ -85,7 +85,7 @@ class EventoFactory extends Factory
         return $this->state(fn (array $attributes) => [
             'modalidad' => 'virtual',
             'termina_el' => null,
-            'lugar' => 'https://meet.socef.test/'.Str::random(10),
+            'lugar' => 'https://meet.eventos.test/'.Str::random(10),
         ]);
     }
 }

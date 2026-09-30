@@ -11,7 +11,7 @@ use Laravel\Mcp\Server\Attributes\Description;
 use Laravel\Mcp\Server\Tool;
 
 /**
- * Reutiliza la misma consulta base de Api\EventoController::index() (S10), agregando el
+ * Reutiliza la misma consulta base de Api\EventoController::index(), agregando el
  * filtro de fechas que la API REST no tiene. La respuesta usa EventoResource -mismo shape
  * publico que /api/v1/eventos, incluida la ocultacion del email del organizador.
  */

@@ -16,7 +16,7 @@ vez de esconderlo detrás de un script.
 | Red | VPC y subred **por defecto** de la cuenta/región (no crea VPC propia) |
 
 **No crea:** base de datos gestionada (RDS), dominio, ni nada de Docker/la app — eso es intencional
-(ver la decisión de arquitectura en `SESION-13-PLANIFICACION.md`).
+(la base de datos corre en Docker dentro de la misma instancia).
 
 ## Requisitos
 

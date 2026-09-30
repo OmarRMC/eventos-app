@@ -31,7 +31,7 @@ class Evento extends Model
     }
 
     /**
-     * Las URLs publicas usan el slug, no el id: /eventos/laravel-13-desde-cero.
+     * Las URLs publicas usan el slug, no el id: /eventos/laravel-desde-cero.
      *
      * Sin esto el binding implicito busca por `id` y `slug` unique no sirve de nada.
      */

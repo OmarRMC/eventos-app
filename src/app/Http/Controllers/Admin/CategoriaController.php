@@ -29,7 +29,7 @@ class CategoriaController extends Controller
         return view('admin.categorias.create');
     }
 
-    /** - el `slug` sale del `nombre`. TODO S7: StoreCategoriaRequest. */
+    /** - el `slug` sale del `nombre`. TODO: StoreCategoriaRequest. */
     public function store(Request $request): RedirectResponse
     {
         $datos = $this->validar($request);

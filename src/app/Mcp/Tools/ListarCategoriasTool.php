@@ -11,7 +11,7 @@ use Laravel\Mcp\Server\Attributes\Description;
 use Laravel\Mcp\Server\Tool;
 
 /**
- * Mismo criterio que Api\CategoriaController::index() (S10): sin filtros, sin paginacion
+ * Mismo criterio que Api\CategoriaController::index(): sin filtros, sin paginacion
  * (son pocas categorias). Sirve para que el agente sepa que "slug" pasarle a
  * BuscarEventosTool en vez de adivinarlo.
  */

@@ -23,7 +23,7 @@ variable "project_name" {
 
 variable "instance_type" {
   description = <<-EOT
-    Tipo de instancia EC2. t3.small es el recomendado por la Sesion 13: app + base de datos + worker
+    Tipo de instancia EC2. t3.small es el recomendado: app + base de datos + worker
     de colas corren en la MISMA maquina, y t3.micro se queda corto de RAM para los tres a la vez.
     Importante: t3.small NO esta en la capa gratuita de 12 meses de AWS (esa cubre t2.micro/t3.micro).
   EOT
@@ -32,7 +32,7 @@ variable "instance_type" {
 }
 
 variable "root_volume_size_gb" {
-  description = "Tamano del disco raiz (EBS) en GB. Ahi vive tambien el volumen de Postgres (S16 del guion)."
+  description = "Tamano del disco raiz (EBS) en GB. Ahi vive tambien el volumen de Postgres."
   type        = number
   default     = 20
 }

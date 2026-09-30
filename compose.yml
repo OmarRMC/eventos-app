@@ -1,4 +1,4 @@
-name: laravel13
+name: eventos-app
 
 services:
   app:
@@ -8,7 +8,7 @@ services:
         PHP_VERSION: ${PHP_VERSION:-8.4}
         UID: ${UID:-1000}
         GID: ${GID:-1000}
-    image: laravel13-app:${PHP_VERSION:-8.4}
+    image: eventos-app:${PHP_VERSION:-8.4}
     restart: unless-stopped
     command: ["docker/start.sh", "${APP_ROLE:-all}"]
     working_dir: /var/www/html

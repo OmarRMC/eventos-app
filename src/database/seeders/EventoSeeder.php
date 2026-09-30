@@ -13,7 +13,7 @@ class EventoSeeder extends Seeder
      * Slug fijo expuesto como constante porque InscripcionSeeder lo necesita
      * para saber a que evento inscribir gente.
      */
-    public const SLUG_LARAVEL = 'laravel-13-desde-cero';
+    public const SLUG_LARAVEL = 'laravel-desde-cero';
 
     /**
      * Seis eventos, todos del mismo organizador: tres publicados y futuros (los
@@ -33,7 +33,7 @@ class EventoSeeder extends Seeder
         $base = Evento::factory()->state(['user_id' => $organizador->id]);
 
         $base->create([
-            'titulo' => 'Laravel 13 desde cero',
+            'titulo' => 'Laravel desde cero',
             'slug' => self::SLUG_LARAVEL,
             'categoria_id' => $categorias[CategoriaSeeder::SLUG_TECNOLOGIA],
             'lugar' => 'Aula 3, Edificio Central',

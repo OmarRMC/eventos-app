@@ -1,14 +1,46 @@
-# laravel-13
+# Agenda de Eventos
 
-Entorno de desarrollo de Laravel 13 sobre Docker: PHP-CLI (servidor embebido de `artisan serve`) + PostgreSQL 17.
+Aplicación web para publicar eventos y gestionar sus inscripciones. Los organizadores crean eventos
+con cupo, fecha y modalidad; los participantes se inscriben, reciben un correo de confirmación y un
+recordatorio, y al asistir pueden descargar su certificado en PDF.
 
-| Servicio | Contenedor | Puerto host | Descripción |
+## Funcionalidades
+
+- **Catálogo público** de eventos filtrable por categoría, con URLs legibles por slug.
+- **Inscripciones** con código único, cancelación y control de cupo.
+- **Panel del organizador**: CRUD de sus eventos, lista de inscritos, marcado de asistencia y reportes
+  en PDF y Excel.
+- **Administración**: categorías y usuarios (roles `admin`, `organizador`, `participante`; cuentas
+  activables/desactivables).
+- **Correos en cola** (Redis) y **tareas programadas**: recordatorio diario y cierre automático de
+  eventos pasados.
+- **API REST** (`/api/v1`) autenticada con tokens de Sanctum.
+- **Servidor MCP** (`/mcp/eventos`) para consultar e inscribirse en eventos desde un asistente de IA.
+- Interfaz en **español e inglés**.
+
+La arquitectura y las decisiones de diseño están detalladas en [`src/README.md`](src/README.md).
+
+## Stack
+
+Laravel · PHP 8.4 · Blade + Tailwind + Alpine.js · PostgreSQL 17 · Redis 7 · Docker Compose ·
+Terraform (AWS EC2)
+
+## Estructura del repositorio
+
+| Ruta | Contenido |
+|---|---|
+| `src/` | Código de la aplicación Laravel (se monta en `/var/www/html` dentro del contenedor) |
+| `infra/` | Terraform para aprovisionar el servidor en AWS (ver [`infra/README.md`](infra/README.md)) |
+| `Dockerfile`, `compose.yml` | Entorno de ejecución local |
+
+## Servicios
+
+| Servicio | Imagen | Puerto host | Descripción |
 |---|---|---|---|
-| `app` | `laravel13-app` | `8000` (`APP_PORT`) | Laravel + Composer + Node/npm (Vite) |
+| `app` | `eventos-app` | `8000` (`APP_PORT`) | Laravel + Composer + Node/npm (Vite), cola y scheduler |
 | `db`  | `postgres:17-alpine` | `5432` (`FORWARD_DB_PORT`) | Base de datos |
+| `redis` | `redis:7-alpine` | `6379` (`FORWARD_REDIS_PORT`) | Colas y caché |
 | Vite  | dentro de `app` | `5173` (`VITE_PORT`) | HMR de assets |
-
-El código vive en `./src` y se monta en `/var/www/html` dentro del contenedor.
 
 ## Requisitos
 
@@ -38,6 +70,18 @@ docker compose exec app npm run build
 ```
 
 Aplicación disponible en http://localhost:8000
+
+### Datos de prueba
+
+`docker compose exec app php artisan migrate:fresh --seed` crea categorías, eventos de ejemplo y estos
+usuarios (contraseña `password` para todos):
+
+| Email | Rol |
+|---|---|
+| `admin@eventos.test` | `admin` |
+| `organizador@eventos.test` | `organizador` |
+| `participante@eventos.test` | `participante` |
+| `baja@eventos.test` | `participante` (cuenta desactivada) |
 
 > El `UID`/`GID` del `.env` deben coincidir con los de tu usuario (`id -u` / `id -g`) para que los archivos generados por artisan te pertenezcan.
 

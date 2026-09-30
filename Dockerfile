@@ -5,7 +5,7 @@ FROM php:${PHP_VERSION}-cli-alpine
 ARG UID=1000
 ARG GID=1000
 
-# Extensiones que Laravel 13 necesita para PostgreSQL, mas Node/npm para Vite.
+# Extensiones que Laravel necesita para PostgreSQL, mas Node/npm para Vite.
 # Nota: docker-php-ext-install compila, por eso hace falta $PHPIZE_DEPS.
 RUN apk add --no-cache \
         bash git unzip nodejs npm \
